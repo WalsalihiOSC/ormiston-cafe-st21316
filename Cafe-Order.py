@@ -6,12 +6,16 @@ class InterfaceGUI:
 
         menu_frame = Frame(parent, bg="white")
         menu_frame.grid(row=0, column=0)
-        #
-        #
-        # Creating COFFEE Menu
         order_frame = Frame(menu_frame, width=250, height=550,
                             bg="#e3cbb3")
         order_frame.grid(row=0, column=0)
+        detail_order = Frame(menu_frame, width=250, height=400, bg="#e3cbb3")
+        detail_order.grid(row=1, column=0)
+
+        #
+        #
+        # Creating COFFEE Menu
+
         coffee_frame = Frame(menu_frame,
                              height=600,  bg="white")
         coffee_frame.grid(row=0, column=1, rowspan=15)
@@ -27,24 +31,27 @@ class InterfaceGUI:
         change_frame.grid(row=4, column=1, columnspan=6)
 
         self.images = []
-        self.images.append(PhotoImage(file="logo.png"))
+        self.images.append(PhotoImage(file="logo_image.png"))
         self.images.append(PhotoImage(file="first_image.png"))
         self.imageLabel_first = Label(coffee_frame, image=self.images[1], height=150,
                                       width=950, padx=20)
         self.imageLabel_first.grid(row=0, column=1, columnspan=7)
+        self.imageLabel_first = Label(order_frame, image=self.images[0], height=150,
+                                      width=100, padx=20)
+        self.imageLabel_first.grid(row=0, column=0, columnspan=7)
 
         # add label/title
         coffee = Label(title_frame, text="COFFEE",
                        font=("Comic Sans MS", 25, "bold"), bg="white")
         coffee.grid(row=1, column=1)
-        sandwiches = Label(title_frame, text="Sandwiches",
-                           font=("Comic Sans MS", 10, "bold"), bg="white")
+        sandwiches = Button(title_frame, text="Sandwiches",
+                            font=("Comic Sans MS", 10, "bold", "underline"), bg="white", bd=0, command=lambda: self.raise_frame(sandwiches_frame))
         sandwiches.grid(row=2, column=1)
-        dessert = Label(title_frame, text="Desert",
-                        font=("Comic Sans MS", 10, "bold"), bg="white")
+        dessert = Button(title_frame, text="Desert",
+                         font=("Comic Sans MS", 10, "bold", "underline"), bg="white", bd=0, command=lambda: self.raise_frame(dessert_frame))
         dessert.grid(row=3, column=1)
-        sides = Label(title_frame, text="Sides",
-                      font=("Comic Sans MS", 10, "bold"), bg="white")
+        sides = Button(title_frame, text="Sides",
+                       font=("Comic Sans MS", 10, "bold", "underline"), bg="white", bd=0, command=lambda: self.raise_frame(side_frame))
         sides.grid(row=4, column=1)
         espresso = Label(coffee_frame, text="ESPRESSO",
                          font=("Courier", 20, "bold"), bg="white")
@@ -125,9 +132,8 @@ class InterfaceGUI:
         sandwiches_change_frame.grid(row=4, column=1, columnspan=6)
 
         self.img = []
-        self.img.append(PhotoImage(file="logo.png"))
         self.img.append(PhotoImage(file="second_image.png"))
-        self.imageLabel_first = Label(sandwiches_frame, image=self.img[1], height=150,
+        self.imageLabel_first = Label(sandwiches_frame, image=self.img[0], height=150,
                                       width=950, padx=20)
         self.imageLabel_first.grid(row=0, column=1, columnspan=7)
 
@@ -135,14 +141,14 @@ class InterfaceGUI:
         sandwiches = Label(sandwiches_title_frame, text="SANDWICHES",
                            font=("Comic Sans MS", 25, "bold"), bg="white")
         sandwiches.grid(row=1, column=1)
-        coffee = Label(sandwiches_title_frame, text="Coffee",
-                       font=("Comic Sans MS", 10, "bold"), bg="white")
+        coffee = Button(sandwiches_title_frame, text="Coffee",
+                        font=("Comic Sans MS", 10, "bold", "underline"), bg="white", bd=0, command=lambda: self.raise_frame(coffee_frame))
         coffee.grid(row=2, column=1)
-        dessert = Label(sandwiches_title_frame, text="Desert",
-                        font=("Comic Sans MS", 10, "bold"), bg="white")
+        dessert = Button(sandwiches_title_frame, text="Desert",
+                         font=("Comic Sans MS", 10, "bold", "underline"), bg="white", bd=0, command=lambda: self.raise_frame(dessert_frame))
         dessert.grid(row=3, column=1)
-        sides = Label(sandwiches_title_frame, text="Sides",
-                      font=("Comic Sans MS", 10, "bold"), bg="white")
+        sides = Button(sandwiches_title_frame, text="Sides",
+                       font=("Comic Sans MS", 10, "bold", "underline"), bg="white", bd=0, command=lambda: self.raise_frame(side_frame))
         sides.grid(row=4, column=1)
 
         price = Label(sandwiches_frame, text="$", bg="white")
@@ -219,9 +225,8 @@ class InterfaceGUI:
         dessert_change_frame.grid(row=4, column=1, columnspan=6)
 
         self.pic = []
-        self.pic.append(PhotoImage(file="logo.png"))
         self.pic.append(PhotoImage(file="third_image.png"))
-        self.imageLabel_first = Label(dessert_frame, image=self.pic[1], height=150,
+        self.imageLabel_first = Label(dessert_frame, image=self.pic[0], height=150,
                                       width=950, padx=20)
         self.imageLabel_first.grid(row=0, column=1, columnspan=7)
 
@@ -229,14 +234,14 @@ class InterfaceGUI:
         dessert = Label(dessert_title_frame, text="DESSERT",
                         font=("Comic Sans MS", 25, "bold"), bg="white")
         dessert.grid(row=1, column=1)
-        sandwiches = Label(dessert_title_frame, text="Sandwiches",
-                           font=("Comic Sans MS", 10, "bold"), bg="white")
+        sandwiches = Button(dessert_title_frame, text="Sandwiches",
+                            font=("Comic Sans MS", 10, "bold", "underline"), bg="white", bd=0, command=lambda: self.raise_frame(sandwiches_frame))
         sandwiches.grid(row=2, column=1)
-        coffee = Label(dessert_title_frame, text="Coffee",
-                       font=("Comic Sans MS", 10, "bold"), bg="white")
+        coffee = Button(dessert_title_frame, text="Coffee",
+                        font=("Comic Sans MS", 10, "bold", "underline"), bg="white", bd=0, command=lambda: self.raise_frame(coffee_frame))
         coffee.grid(row=3, column=1)
-        sides = Label(dessert_title_frame, text="Sides",
-                      font=("Comic Sans MS", 10, "bold"), bg="white")
+        sides = Button(dessert_title_frame, text="Sides",
+                       font=("Comic Sans MS", 10, "bold", "underline"), bg="white", bd=0, command=lambda: self.raise_frame(side_frame))
         sides.grid(row=4, column=1)
         price = Label(dessert_frame, text="$", bg="white")
         price.grid(row=2, column=3)
@@ -311,24 +316,23 @@ class InterfaceGUI:
         side_change_frame.grid(row=4, column=1, columnspan=6)
 
         self.photos = []
-        self.photos.append(PhotoImage(file="logo.png"))
         self.photos.append(PhotoImage(file="forth_image.png"))
-        self.imageLabel_first = Label(side_frame, image=self.photos[1], height=150,
+        self.imageLabel_first = Label(side_frame, image=self.photos[0], height=150,
                                       width=950, padx=20)
         self.imageLabel_first.grid(row=0, column=1, columnspan=7)
 
         # add label/title
         side = Label(side_title_frame, text="SIDES",
-                     font=("Comic Sans MS", 25, "bold"), bg="white")
+                     font=("Comic Sans MS", 25, "bold",), bg="white")
         side.grid(row=1, column=1)
-        sandwiches = Label(side_title_frame, text="Sandwiches",
-                           font=("Comic Sans MS", 10, "bold"), bg="white")
+        sandwiches = Button(side_title_frame, text="Sandwiches",
+                            font=("Comic Sans MS", 10, "bold"), bg="white", bd=0, command=lambda: self.raise_frame(sandwiches_frame))
         sandwiches.grid(row=2, column=1)
-        dessert = Label(side_title_frame, text="Dessert",
-                        font=("Comic Sans MS", 10, "bold"), bg="white")
+        dessert = Button(side_title_frame, text="Dessert",
+                         font=("Comic Sans MS", 10, "bold", "underline"), bg="white", bd=0, command=lambda: self.raise_frame(dessert_frame))
         dessert.grid(row=3, column=1)
-        coffee = Label(side_title_frame, text="Coffee",
-                       font=("Comic Sans MS", 10, "bold"), bg="white")
+        coffee = Button(side_title_frame, text="Coffee",
+                        font=("Comic Sans MS", 10, "bold", "underline"), bg="white", bd=0, command=lambda: self.raise_frame(coffee_frame))
         coffee.grid(row=4, column=1)
         price = Label(side_frame, text="$", bg="white")
         price.grid(row=2, column=3)
@@ -386,6 +390,9 @@ class InterfaceGUI:
 
         for frame in (coffee_frame, sandwiches_frame, dessert_frame, side_frame):
             frame.grid(row=0, column=1, sticky='news')
+
+        # Event Binding (interactive label)
+        sandwiches.bind("<sandwiches_btn>", self.raise_frame(sandwiches_frame))
 
     def raise_frame(self, frame):
         frame.tkraise()
